@@ -134,7 +134,7 @@
 										<small>$cat</small><br/>
 										P$price
 										<hr/>
-										<button name='addtocart' class='btn btn-success btn-block'>
+										<button name='addtocart' class='cart btn btn-success btn-block' type='submit' data-id='$pid'>
 											<i class='fa fa-plus'></i> Add to Cart
 										</button>
 									</div>
@@ -161,6 +161,13 @@
 		?>
 	</div>
 </form>
+<script>
+	$('.cart').on('click', function(event){
+		event.preventDefault();
+		var url = 'addtocart.php?id=' + $(this).data('id');
+		location.replace(url);
+	});
+</script>
 
 <?php
 	include_once('includes/footer.php');
